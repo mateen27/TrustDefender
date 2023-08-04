@@ -1,0 +1,151 @@
+/*
+import React, { useEffect, useState } from 'react';
+import { Accelerometer } from 'expo-sensors';
+*/
+- These lines import the necessary components from React and Expo libraries.
+- It tells the computer that we want to use the `React` and `useState`, `useEffect` from the `react` library, and `Accelerometer` from the `expo-sensors` library.
+
+/*
+const ShakeFeature = () => {
+*/
+- This creates a new function called `ShakeFeature`.
+- A function is like a recipe that tells the computer how to do something specific.
+
+/*
+  const [shakeStartTime, setShakeStartTime] = useState(0);
+  const [shakeEndTime, setShakeEndTime] = useState(0);
+*/
+- These lines create two special containers (called variables) named `shakeStartTime` and `shakeEndTime`.
+- They are like jars where we can store information in the computer's memory.
+- We use `useState(0)` to create these containers and set them to `0` initially.
+
+```javascript
+  const shakeThreshold = 1500;
+  const minShakeDuration = 5000;
+```
+- These lines create two more containers called `shakeThreshold` and `minShakeDuration`.
+- We can put numbers in these containers to use later in the code.
+
+```javascript
+  const handleShake = () => {
+```
+- This creates a new function called `handleShake`.
+- This function will do something special when we call it.
+
+```javascript
+    const currentTimestamp = Date.now();
+```
+- This line creates a new container called `currentTimestamp`.
+- It gets the current time from the computer's clock and puts it in the container.
+
+```javascript
+    const shakeDuration = currentTimestamp - shakeStartTime;
+```
+- This creates a new container called `shakeDuration`.
+- It calculates how much time has passed since we last shook the phone by subtracting the `shakeStartTime` from the `currentTimestamp`.
+
+```javascript
+    if (shakeDuration > minShakeDuration) {
+```
+- This line checks if the `shakeDuration` is more than the `minShakeDuration`.
+- If it is, it means we have shaken the phone for at least 5 seconds (since `minShakeDuration` is 5000 milliseconds).
+
+```javascript
+      console.log('Hi Luv Saini');
+```
+- If the condition above is true (we shook for at least 5 seconds), it will do something special.
+- In this case, it will print the message "Hi Luv Saini" on the computer's screen.
+
+```javascript
+      // Your action here (e.g., send distress signal, alert, etc.)
+```
+- This line is a comment, which means it's a note for people who read the code.
+- It suggests that you can replace this comment with any action you want to happen when the phone is shaken for at least 5 seconds.
+
+```javascript
+    }
+
+    // If the shakeStartTime is not set or the last shake was too long ago, start a new shake
+    if (!shakeStartTime || currentTimestamp - shakeEndTime > shakeThreshold) {
+      setShakeStartTime(currentTimestamp);
+    }
+```
+- This part checks if we need to start a new shake or continue the previous one.
+- If `shakeStartTime` is not set (meaning we haven't shaken before), or if it's been too long since the last shake (longer than `shakeThreshold`), it will start a new shake by setting `shakeStartTime` to the current time.
+
+```javascript
+    // Update the shake end time for each shake event
+    setShakeEndTime(currentTimestamp);
+```
+- This line updates the `shakeEndTime` to the current time.
+- It means we record the time when the shake happened last, so we know when the next shake starts.
+
+```javascript
+  };
+
+  useEffect(() => {
+    const startShakeDetection = async () => {
+```
+- This starts another special function called `useEffect`.
+- `useEffect` is like a helper that helps us do something when the component is first shown on the screen.
+
+```javascript
+      try {
+        await Accelerometer.setUpdateInterval(100);
+```
+- This line tells the phone's accelerometer (a special sensor inside the phone) to update its data every 100 milliseconds (0.1 second).
+- It's like telling the accelerometer to give us new information about how the phone is moving every 0.1 second.
+
+```javascript
+        Accelerometer.addListener(accelerometerData => {
+```
+- This sets up the accelerometer to listen for changes in movement.
+- When the accelerometer detects movement, it will do something special.
+
+```javascript
+          const { x, y, z } = accelerometerData;
+          const acceleration = Math.sqrt(x * x + y * y + z * z) - 1;
+```
+- These lines get the data from the accelerometer about how the phone is moving in different directions (x, y, and z).
+- They calculate the total acceleration by combining the movements in all directions.
+
+```javascript
+          if (acceleration > 1.2) {
+```
+- This line checks if the acceleration is more than 1.2.
+- If it is, it means the phone is shaking or moving more than usual.
+
+```javascript
+            handleShake();
+```
+- If the condition above is true (the phone is shaking), it will call the `handleShake` function we defined earlier.
+
+```javascript
+          }
+        });
+```
+
+```javascript
+      } catch (error) {
+        console.error('Error while starting shake detection:', error);
+      }
+    };
+
+    startShakeDetection();
+
+    return () => {
+      Accelerometer.removeAllListeners();
+    };
+  }, []);
+```
+- These lines tell the computer to start the shake detection when the component is first shown on the screen (when it's mounted).
+- It sets up the accelerometer to listen for movement.
+- If there is an error, it will print an error message on the computer's screen.
+
+```javascript
+};
+
+export default ShakeFeature;
+```
+- This part ends the `ShakeFeature` function we created at the beginning.
+- It tells the computer that this function is now ready to be used in other parts of the code.
