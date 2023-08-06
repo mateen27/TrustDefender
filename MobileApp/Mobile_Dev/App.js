@@ -4,6 +4,7 @@ import ShakeFeature from './features/ShakeFeature';
 import Header from './components/Header';
 import RandomQuote from './components/RandomQuote';
 import Greeting from './components/Greeting';
+import Carousel from './components/Carousel';
 
 export default function App() {
   return (
@@ -16,6 +17,8 @@ export default function App() {
         <Greeting/>
 
         {/* <RandomQuote/> */}
+
+        <Carousel/>
 
         <StatusBar style="auto" />
 
