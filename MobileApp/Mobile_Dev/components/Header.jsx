@@ -19,7 +19,7 @@ const Header = () => {
         {/* Menu Bar Icon */}
       {/* <TouchableOpacity><Entypo name="menu" size={30} color="black" /></TouchableOpacity> */}
       <TouchableOpacity><Image 
-      source={Menu}
+      source={MenuBar}
       style = {styles.headerMenu}
       /></TouchableOpacity>
 
@@ -27,7 +27,7 @@ const Header = () => {
       <Text style = {styles.headerText}>Home</Text>
 
       {/* Notification Icon */} 
-      <TouchableOpacity><Ionicons name="notifications-outline" size={24} color="#C92121" /></TouchableOpacity>
+      <TouchableOpacity><Ionicons name="notifications-outline" size={24} color="#0D0D0D" /></TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     headerText : {
         fontSize : responsiveScreenFontSize(2.5) , 
         fontWeight : "bold" , 
-        color : '#C92121' , 
+        color : '#0D0D0D' , 
     } , 
     headerMenu : {
       width : 30 ,
