@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import ShakeFeature from './features/ShakeFeature';
 import Header from './components/Header';
 import RandomQuote from './components/RandomQuote';
+import Greeting from './components/Greeting';
 
 export default function App() {
   return (
@@ -11,6 +12,8 @@ export default function App() {
       <SafeAreaView style={styles.container}>
 
         <Header/>
+
+        <Greeting/>
 
         {/* <RandomQuote/> */}
 
