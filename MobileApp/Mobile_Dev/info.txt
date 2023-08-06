@@ -1,0 +1,5 @@
+1 - ShakeFeature
+
+2 - react native responsive dimensions
+
+3 - vector-icons
