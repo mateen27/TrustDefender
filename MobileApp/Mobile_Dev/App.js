@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import ShakeFeature from './features/ShakeFeature';
+import Header from './components/Header';
+import RandomQuote from './components/RandomQuote';
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
     <>
-      <ShakeFeature/>
+      {/* <ShakeFeature/>*/}
+      <SafeAreaView style={styles.container}>
 
-      <View style={styles.container}>
-      <Text style={styles.text}>Shake your phone to see a message!</Text>
-      <StatusBar style="auto" />
-      </View>
+        <Header/>
+
+        {/* <RandomQuote/> */}
+
+        <StatusBar style="auto" />
+
+      </SafeAreaView>
     
     </>
   );
@@ -22,9 +24,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex : 1 ,
+    backgroundColor: '#F4F4F4',
   },
 });
