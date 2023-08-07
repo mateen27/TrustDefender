@@ -5,20 +5,23 @@ import Header from './components/Header';
 import RandomQuote from './components/RandomQuote';
 import Greeting from './components/Greeting';
 import Carousel from './components/Carousel';
+import Options from './components/Border';
 
 export default function App() {
   return (
     <>
-      {/* <ShakeFeature/>*/}
+      <ShakeFeature/>
       <SafeAreaView style={styles.container}>
 
         <Header/>
 
-        <Greeting/>
+       <Greeting/>
 
         {/* <RandomQuote/> */}
 
         <Carousel/>
+
+        <Options/>
 
         <StatusBar style="auto" />
 
