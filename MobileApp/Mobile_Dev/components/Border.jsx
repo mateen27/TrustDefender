@@ -1,11 +1,6 @@
 import {StyleSheet,Text,View} from 'react-native'
 import { Image } from 'react-native';
-// import { useFonts } from '@expo-google-fonts/poppins'; // If using Expo
-// OR
-import { useFonts } from 'expo-font'; // If using Expo
-// OR
-// import { useFonts } from 'react-native-fonts'; // If using a different package
-
+import { FontAwesome5 } from '@expo/vector-icons';
 // responsive font imports
 import {
   responsiveScreenHeight,
@@ -15,17 +10,9 @@ import {
 
 const Options=()=>{
 
-  const [fontsLoaded] = useFonts({
-    Poppins: require('../assets/fonts/Poppins-Light.ttf'), // Adjust the path
-  });
-  
-  if (!fontsLoaded) {
-    return (console.log('Error Loading Font'));
-  }
-
     return(
         <View style={{marginTop:0}}>
-            <Text style={{fontSize:15,marginHorizontal:25,marginBottom:5 , justifyContent :'space-between' , fontWeight : 'bold' , fontFamily: Platform.OS === 'ios' ? 'Poppins' : 'Poppins', }}>NEARBY</Text>
+            <Text style={{fontSize:15,marginHorizontal:25,marginBottom:5 , justifyContent :'space-between' , fontWeight : 'bold' ,  }}>NEARBY</Text>
         <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
         <Text style={styles.container}></Text>
         <Text style={styles.container}></Text>
