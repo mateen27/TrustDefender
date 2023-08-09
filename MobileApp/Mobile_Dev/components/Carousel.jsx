@@ -1,4 +1,4 @@
-import { FlatList, Image, SafeAreaView, StyleSheet, View, Dimensions } from 'react-native';
+import { FlatList, Image, SafeAreaView, StyleSheet, View, Text , Dimensions } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 
 const Carousel = () => {
@@ -102,6 +102,7 @@ const Carousel = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* <Text>Help</Text> */}
       <FlatList data={data} renderItem={renderItem} ref={flatListRef} getItemLayout={getItemLayout} keyExtractor={(item)=> item.id} horizontal pagingEnabled onScroll={handleScroll}/>
       {renderDotIndicator()}
     </SafeAreaView>

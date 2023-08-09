@@ -1,86 +1,88 @@
-import {StyleSheet,Text,View,Image} from 'react-native'
+import {StyleSheet,Text,Image, SafeAreaView, TouchableOpacity} from 'react-native'
+import { responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions';
+// Home Icon & Chat Image
+import { Ionicons } from '@expo/vector-icons';
+//Search Icon & user Image  
+import { Feather } from '@expo/vector-icons';
 
 const BottomNavigation=()=>{
   return(
-    <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', flex: 1}}>
     
-    <View style={{backgroundColor:'black',marginTop:285,borderRadius:20}}>
-      
-      
-      <View style={{flexDirection:'row',marginTop:25}}>
-        <Image
+    <SafeAreaView style = {styles.bottomContainer}>
+
+      {/* Home Section */}
+      <TouchableOpacity style={styles.styleIcon}>
+        {/* <Image
         source={require('../images/home.jpeg')}
-        style={styles.image}
-        //  resizeMode='cover'
-      />
-      
-      <Image
+        resizeMode='cover'
+        style = {styles.bottomNavBarImage}
+        /> */}
+        <Ionicons name="home-outline" size={20} color="black" />
+        <Text style = {styles.bottomNavBarText}>Home</Text>
+      </TouchableOpacity>
+
+      {/* Search Section */}
+      <TouchableOpacity style={styles.styleIcon}>
+        {/* <Image
         source={require('../images/search.png')}
-        style={styles.image}
-        //  resizeMode='cover'
-      />
+        resizeMode='cover'
+        style = {styles.bottomNavBarImage}
+        /> */}
+        <Feather name="search" size={20} color="black" />
+        <Text style = {styles.bottomNavBarText}>Search</Text>
+      </TouchableOpacity>
 
-      <Image
+      {/* Chat Section */}
+      <TouchableOpacity style={styles.styleIcon}>
+        {/* <Image
         source={require('../images/chat.png')}
-        style={styles.image}
-        //  resizeMode='cover'
-      />
+        resizeMode='cover'
+        style = {styles.bottomNavBarImage}
+        /> */}
+        <Ionicons name="ios-chatbubble-ellipses-outline" size={20} color="black" />
+        <Text style = {styles.bottomNavBarText}>Chat</Text>
+      </TouchableOpacity>
 
-      <Image
+      {/* About Section */}
+      <TouchableOpacity style={styles.styleIcon}>
+        {/* <Image
         source={require('../images/user.jpeg')}
-        style={styles.image}
-        //  resizeMode='cover'
-      />
-      </View> 
-      
-      
-      <View style={{flexDirection:'row',marginBottom:20}}>
-      
-      <Text style={styles.container}>HOME</Text>
-      <Text style={styles.container}>SEARCH</Text>
-      <Text style={styles.container}>CHAT</Text>
-      <Text style={styles.container}>USER</Text>
-      
-      </View>
-      
-      </View>
-      
-      </View> 
-     
-
+        resizeMode='cover'
+        style = {styles.bottomNavBarImage}
+        /> */}
+        <Feather name="user" size={20} color="black" />
+        <Text style = {styles.bottomNavBarText}>About</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  image:{
-    width:40,
-    height: 40,
-    marginHorizontal :'7%' ,
-    justifyContent:'space-between',
-    alignItems:'center'
-
-  },
- 
-  // image: {
-  //   width: '10%',
-  //   height: '100%',
-  //   resizeMode: 'contain', 
-  //   marginTop:'8%',
-  //   justifyContent : 'space-between' ,
-  //   marginHorizontal : '7%' ,
-  //   borderRadius:2
-  // },
-  container:{
-    marginHorizontal :'8.3%',
-    justifyContent:'space-between',
-    alignItems:'center',
-    fontSize:14,
-    textAlign:'center',
-    color:'#fff'
-  },
+  bottomContainer : {
+    flexDirection : 'row' , 
+    justifyContent : 'space-around' , 
+    backgroundColor : '#F4F4F4' , 
+    padding : '3%' , 
+    alignItems : 'center' , //aligining the items
+    borderRadius : 25 , 
+    position: 'absolute', // Position it at the bottom
+    bottom: 0, // Align it to the bottom of the screen
+    left: 0, // Align it to the left of the screen
+    right: 0, // Align it to the right of the screen
+  } ,
+  bottomNavBarImage : {
+    width : responsiveScreenWidth(10) , 
+    height : responsiveScreenHeight(5)
+  } ,
+  bottomNavBarText : {
+    color : 'black' , 
+    marginTop: '3%', // Add some space between icon and text
+    fontWeight : 'bold'
+  } ,
+  styleIcon : {
+    alignItems : 'center'
+  }
 });
 
 
 export default BottomNavigation;
-
-
