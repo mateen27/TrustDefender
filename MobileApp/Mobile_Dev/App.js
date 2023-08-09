@@ -6,6 +6,7 @@ import RandomQuote from './components/RandomQuote';
 import Greeting from './components/Greeting';
 import Carousel from './components/Carousel';
 import Options from './components/Border';
+import BottomNavigation from './components/BottomBar';
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
         <Carousel/>
 
         <Options/>
-
+        <BottomNavigation/>
         <StatusBar style="auto" />
 
       </SafeAreaView>
