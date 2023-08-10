@@ -7,24 +7,30 @@ import Greeting from './components/Greeting';
 import Carousel from './components/Carousel';
 import Options from './components/Border';
 import BottomNavigation from './components/BottomBar';
+import LoginUI from './components/LoginUI'
+import LoginDetailUI from './components/LoginDetail'
 
 export default function App() {
   return (
     <>
-      <ShakeFeature/>
+      {/* <ShakeFeature/> */}
       <SafeAreaView style={styles.container}>
-
+{/* 
         <Header/>
 
-       <Greeting/>
+       <Greeting/> */}
 
         {/* <RandomQuote/> */}
 
-        <Carousel/>
+        {/* <Carousel/>
 
         <Options/>
 
-        <BottomNavigation/>
+        <BottomNavigation/> */}
+
+        {/* <LoginUI/> */}
+
+        <LoginDetailUI/>
         
         <StatusBar style="auto" />
 
@@ -37,6 +43,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex : 1 ,
-    backgroundColor: '#DCDCDC', //F4F4F4
+    backgroundColor: '#F1F1F1', //F4F4F4
   },
 });
