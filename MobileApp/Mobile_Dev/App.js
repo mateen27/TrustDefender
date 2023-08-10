@@ -9,6 +9,7 @@ import Options from './components/Border';
 import BottomNavigation from './components/BottomBar';
 import LoginUI from './components/LoginUI'
 import LoginDetailUI from './components/LoginDetail'
+import SignupUI from './components/SignUp'
 
 export default function App() {
   return (
@@ -30,7 +31,8 @@ export default function App() {
 
         {/* <LoginUI/> */}
 
-        <LoginDetailUI/>
+        {/* <LoginDetailUI/> */}
+        <SignupUI/>
         
         <StatusBar style="auto" />
 

@@ -9,9 +9,11 @@ import {
   ScrollView,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, {useState} from 'react'
 import {
   responsiveScreenHeight,
   responsiveScreenWidth,
@@ -19,6 +21,13 @@ import {
 } from "react-native-responsive-dimensions";
 
 const LoginDetailUI = () => {
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -40,7 +49,14 @@ const LoginDetailUI = () => {
         </View>
         <View style={styles.textInputContainer}>
           <Feather name="unlock" size={24} color="black" />
-          <TextInput style={styles.textbox} placeholder="Password" />
+          <TextInput style={styles.textbox} placeholder="Password" 
+           secureTextEntry={!showPassword}
+           value={password}
+           onChangeText={setPassword}
+          />
+          <TouchableOpacity onPress={toggleShowPassword} style={styles.showPasswordButton}>
+             <Icon name={showPassword ? 'unlock' : 'lock'} size={20} />
+             </TouchableOpacity>
         </View>
 
         {/* Forgot Password */}
@@ -77,6 +93,12 @@ const LoginDetailUI = () => {
             <Text style={styles.socialText}>Gmail</Text>
           </TouchableOpacity>
         </View>
+
+        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginTop:"5%"}}>
+        <Text style={{marginHorizontal:2}}>Don't Have An Account?</Text>
+        <Text style={{color:'#87CEEB'}}>Signup</Text>
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -167,6 +189,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     margin: "3%",
   },
+  showPasswordButton: {
+    position: 'absolute',
+    right: 22,
+    top: 20,
+  }
 });
 
 export default LoginDetailUI;
