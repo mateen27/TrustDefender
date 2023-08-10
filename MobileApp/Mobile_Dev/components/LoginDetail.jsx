@@ -9,11 +9,11 @@ import {
   ScrollView,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from "react-native-vector-icons/FontAwesome";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import {
   responsiveScreenHeight,
   responsiveScreenWidth,
@@ -21,12 +21,12 @@ import {
 } from "react-native-responsive-dimensions";
 
 const LoginDetailUI = () => {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,14 +49,19 @@ const LoginDetailUI = () => {
         </View>
         <View style={styles.textInputContainer}>
           <Feather name="unlock" size={24} color="black" />
-          <TextInput style={styles.textbox} placeholder="Password" 
-           secureTextEntry={!showPassword}
-           value={password}
-           onChangeText={setPassword}
+          <TextInput
+            style={styles.textbox}
+            placeholder="Password"
+            secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
           />
-          <TouchableOpacity onPress={toggleShowPassword} style={styles.showPasswordButton}>
-             <Icon name={showPassword ? 'unlock' : 'lock'} size={20} />
-             </TouchableOpacity>
+          <TouchableOpacity
+            onPress={toggleShowPassword}
+            style={styles.showPasswordButton}
+          >
+            <Icon name={showPassword ? "unlock" : "lock"} size={20} />
+          </TouchableOpacity>
         </View>
 
         {/* Forgot Password */}
@@ -94,11 +99,17 @@ const LoginDetailUI = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginTop:"5%"}}>
-        <Text style={{marginHorizontal:2}}>Don't Have An Account?</Text>
-        <Text style={{color:'#87CEEB'}}>Signup</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "5%",
+          }}
+        >
+          <Text style={{ marginHorizontal: 2 }}>Don't Have An Account?</Text>
+          <Text style={{ color: "#87CEEB" }}>Signup</Text>
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -138,6 +149,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 50,
     justifyContent: "center",
+    position: "relative", // Add position relative to the container
+
   },
   textbox: {
     fontSize: responsiveScreenFontSize(2),
@@ -190,10 +203,12 @@ const styles = StyleSheet.create({
     margin: "3%",
   },
   showPasswordButton: {
-    position: 'absolute',
-    right: 22,
-    top: 20,
-  }
+    position: "absolute",
+    right: '3%', // Adjust the right position
+    top: "50%", // Vertically center based on container's height
+    transform: [{ translateY: -10 }], // Adjust to center align the icon
+    // alignSelf: "flex-end", // Horizontally center within the container
+  },
 });
 
 export default LoginDetailUI;
