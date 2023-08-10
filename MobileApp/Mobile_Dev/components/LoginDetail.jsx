@@ -1,98 +1,172 @@
-import {StyleSheet,Text,View,TextInput,Image} from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveScreenFontSize,
+} from "react-native-responsive-dimensions";
 
-const LoginDetailUI=()=>{
-  return(
-    <View style={styles.container}>
-      <View>
-        {<Image
-        source={require('../images/welcome.jpg')}
-        // resizeMode='cover'
-        style = {styles.image}
-        /> }
-      </View>
+const LoginDetailUI = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        {/* for the image */}
+        <View style={styles.imageContainer}>
+          <Image source={require("../images/women.png")} style={styles.image} />
+        </View>
 
-    <Text style={{fontSize:50}}>Welcome Back</Text>  
-    <Text style={{fontSize:18,color:'grey'}}>LogIn To Your Existant Acoount of TrustDefender</Text>
+        {/* for the heading and subHeading */}
+        <View style={styles.textContainer}>
+          <Text style={styles.heading}>Welcome Back!</Text>
+          <Text style={styles.subHeading}>Login to your existing account</Text>
+        </View>
 
-      <View style={{marginTop:30}}>
-        <TextInput style={styles.textbox}
-        placeholder=' User Name'
-        // onChangeText={}
-        />
+        {/* for textInput Fields */}
+        <View style={styles.textInputContainer}>
+          <AntDesign name="user" size={24} color="black" />
+          <TextInput style={styles.textbox} placeholder="User Name" />
+        </View>
+        <View style={styles.textInputContainer}>
+          <Feather name="unlock" size={24} color="black" />
+          <TextInput style={styles.textbox} placeholder="Password" />
+        </View>
 
-        <TextInput style={styles.textbox}
-        placeholder=' Password'
-        secureTextEntry={true}
-        // onChangeText={}
-        />
-        <Text style={{color:'grey',marginLeft:170}}>Forget Password?</Text>
-      </View>
-      <View>
-       <Text style={styles.box}>LogIn</Text> 
-      </View>
+        {/* Forgot Password */}
+        <View style={styles.forgotPasswordContainer}>
+          <TouchableOpacity>
+            <Text style={styles.forgotText}>Forgot Password!</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={{marginTop:15}}>
-        <Text style={{fontSize:15}}>Or Connect Using</Text>
-      </View>
+        {/* Login Button */}
+        <View style={styles.loginButtonContainer}>
+          <TouchableOpacity>
+            <Text style={styles.loginButton}>Login</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={{flex:1,flexDirection:'row'}}>
-          <Text style={styles.box2}>Facebook</Text> 
-          <Text style={styles.box2}>Google</Text> 
-      </View>
-    </View> 
-     
+        {/* Connect Using Section */}
+        <View style={styles.connectContainer}>
+          <Text style={styles.connectText}>Or Connect using</Text>
+        </View>
 
+        {/* Social Media Buttons */}
+        <View style={styles.connectContainer}>
+          {/* Facebook Icon */}
+          <TouchableOpacity style={styles.socialIconContainer}>
+            <FontAwesome name="facebook" size={22} color="white" />
+            <Text style={styles.socialText}>Facebook</Text>
+          </TouchableOpacity>
+          {/* Gmail Icon */}
+          <TouchableOpacity
+            style={[styles.socialIconContainer, { backgroundColor: "#DF5146" }]}
+          >
+            <MaterialCommunityIcons name="gmail" size={24} color="white" />
+            <Text style={styles.socialText}>Gmail</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  textbox:{
-    fontSize:15,
-    borderColor:'black',
-    borderWidth:2,
-    borderRadius:10,
-    width:250,
-    height:50,
-    textAlignVertical:'center',
-    marginBottom:20
+  container: {
+    flex: 1,
   },
-  container:{
-    marginTop:40,
-    justifyContent:'center',
-    alignItems:'center',
+  imageContainer: {
+    alignItems: "center",
+    marginVertical: "5%",
   },
-  box:{
-    backgroundColor:'black',
-    width:120,
-    height:45,
-    borderRadius:25,
-    color:'#fff',
-    fontSize:20,
-    marginTop:30,
-    textAlignVertical:'center',
-    textAlign:'center'
-},
-box2:{
-  backgroundColor:'black',
-  width:90,
-  height:40,
-  borderRadius:10,
-  color:'#fff',
-  fontSize:15,
-  marginTop:10,
-  textAlignVertical:'center',
-  textAlign:'center',
-  justifyContent:'space-between',
-  marginHorizontal:10
-},
- image:{
-
-    width : 200, 
-    height : 200
- },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  textContainer: {
+    alignItems: "center",
+  },
+  heading: {
+    fontSize: responsiveScreenFontSize(5),
+  },
+  subHeading: {
+    fontSize: responsiveScreenFontSize(2.3),
+    color: "grey",
+    marginBottom: "2%",
+  },
+  textInputContainer: {
+    flexDirection: "row",
+    margin: "3%",
+    // backgroundColor : 'orange' ,
+    alignItems: "center", // Horizontally center the content
+    justifyContent: "center", // Vertically center the content
+    // paddingVertical: 5, // Add padding instead of fixed height
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 50,
+    justifyContent: "center",
+  },
+  textbox: {
+    fontSize: responsiveScreenFontSize(2),
+    width: responsiveScreenWidth(60),
+    height: responsiveScreenHeight(8),
+    textAlign: "center",
+    // margin  : 1
+  },
+  forgotPasswordContainer: {
+    alignItems: "flex-end",
+    marginRight: "8%",
+  },
+  forgotText: {
+    color: "grey",
+    fontWeight: "700",
+  },
+  loginButtonContainer: {
+    alignItems: "center",
+    margin: "5%",
+  },
+  loginButton: {
+    color: "white",
+    backgroundColor: "#333",
+    padding: "4%",
+    borderRadius: 30,
+    width: responsiveScreenWidth(40),
+    textAlign: "center",
+    fontWeight: "700",
+  },
+  connectContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  connectText: {
+    color: "grey",
+    fontWeight: "700",
+  },
+  socialIconContainer: {
+    flexDirection: "row",
+    margin: "2%",
+    backgroundColor: "#4867AA",
+    padding: "1%",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  socialText: {
+    color: "white",
+    fontWeight: "700",
+    margin: "3%",
+  },
 });
 
-
 export default LoginDetailUI;
-
-
