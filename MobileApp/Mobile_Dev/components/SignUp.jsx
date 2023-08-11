@@ -27,7 +27,7 @@ const SignupUI=()=>{
     <View style={styles.container}>
         
           <Text style={{fontSize:responsiveScreenFontSize(5),marginBottom:5}}>Let's Get Started !</Text>
-          <Text style={{color:'grey',fontSize:responsiveScreenFontSize(2)}}>Create An Account To TrustDefender To Get All The Features</Text>
+          <Text style={{color:'grey',fontSize:responsiveScreenFontSize(2)}}>Create An Account to Get All The Features</Text>
 
           <View style={{marginTop:30}}>
             <TextInput style={styles.textbox}
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
     width : responsiveScreenWidth(70) , 
     height : responsiveScreenHeight(7),
     textAlignVertical:'center',
-    marginBottom:20
+    marginBottom:20 , 
+    textAlign : 'center'
   },
   container:{
     marginTop:100,

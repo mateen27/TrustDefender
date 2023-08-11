@@ -1,0 +1,129 @@
+```jsx
+import React, { useState, useEffect } from 'react';
+import MapView, { Marker, Callout } from 'react-native-maps';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import * as Location from 'expo-location';
+import * as LocationGeocoding from 'expo-location';
+```
+
+Here, we're importing some necessary parts:
+- React and its built-in functions like `useState` and `useEffect`.
+- `MapView` and related components from a library called `react-native-maps` to create a map view.
+- Basic UI elements like `View`, `Text`, and `Button` from React Native.
+- `Location` and `LocationGeocoding` modules from Expo to access device location.
+
+```jsx
+export default function App() {
+  const [mapRegion, setMapRegion] = useState({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+    pitch: 45,
+  });
+  const [locationName, setLocationName] = useState('');
+```
+
+We're creating a function-based component named `App`. Inside it, we're using a couple of things:
+- `useState` lets us manage the state of variables like `mapRegion` (which stores map's location and zoom settings) and `locationName` (which stores the user's location name).
+- We set initial values for these variables.
+
+```jsx
+const userLocation = async () => {
+  let { status } = await Location.requestForegroundPermissionsAsync();
+  if (status !== 'granted') {
+    console.log('Permission to access location was denied');
+    return;
+  }
+  let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
+  setMapRegion({
+    latitude: location.coords.latitude,
+    longitude: location.coords.longitude,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+    pitch: 45,
+  });
+
+  const reverseGeocode = await LocationGeocoding.reverseGeocodeAsync({
+    latitude: location.coords.latitude,
+    longitude: location.coords.longitude,
+  });
+
+  if (reverseGeocode.length > 0) {
+    const addressComponents = reverseGeocode[0];
+    let locationName = '';
+
+    if (addressComponents.street) {
+      locationName += addressComponents.street + ', ';
+    }
+    if (addressComponents.city) {
+      locationName += addressComponents.city + ', ';
+    }
+    if (addressComponents.region) {
+      locationName += addressComponents.region + ', ';
+    }
+    if (addressComponents.country) {
+      locationName += addressComponents.country;
+    }
+
+    setLocationName(locationName || 'Unknown Location');
+  }
+
+  console.log(location.coords.latitude, location.coords.longitude);
+};
+```
+
+We're defining a function called `userLocation` which does the following:
+- Requests permission to access the device's location.
+- If permission is granted, fetches the current location using `Location.getCurrentPositionAsync`.
+- Sets the map's region and pitch based on the current location.
+- Fetches more detailed location information using `LocationGeocoding.reverseGeocodeAsync`.
+- Constructs a more precise location name using address components like street, city, region, and country.
+- Sets the `locationName` state with the constructed name.
+
+```jsx
+useEffect(() => {
+  userLocation();
+}, []);
+```
+
+`useEffect` is used to run code when the component is first rendered. Here, we're calling the `userLocation` function when the component is mounted (because of the empty dependency array `[]`).
+
+```jsx
+return (
+  <View style={styles.container}>
+    <MapView style={styles.map} region={mapRegion}>
+      <Marker coordinate={mapRegion} pinColor='black'>
+        <Callout>
+          <Text>You're Here!</Text>
+          <Text>Location: {locationName}</Text>
+        </Callout>
+      </Marker>
+    </MapView>
+    <Button title="Get Location" onPress={userLocation} />
+  </View>
+);
+```
+
+In the `return` statement, we're rendering the user interface (UI):
+- A `View` component with styling (styles.container) to contain the map and button.
+- A `MapView` component to display the map using the `mapRegion` settings.
+- Inside the map, a `Marker` is placed at the current location with a custom pin color.
+- A `Callout` displays a message and the more precise `locationName`.
+- A `Button` is provided to manually trigger the `userLocation` function.
+
+```jsx
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+});
+```
+
+Lastly, we define some styles using the `StyleSheet.create` function to control the layout and appearance of the components. The container takes up the full screen, and the map fills the container.
+
+That's the code explained in simpler terms! It fetches your device's location, displays it on a map, and shows a more precise location name using reverse geocoding.

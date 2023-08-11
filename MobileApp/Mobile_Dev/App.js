@@ -10,6 +10,7 @@ import BottomNavigation from './components/BottomBar';
 import LoginUI from './components/LoginUI'
 import LoginDetailUI from './components/LoginDetail'
 import SignupUI from './components/SignUp'
+import MapFeature from './features/MapFeature';
 
 export default function App() {
   return (
@@ -32,7 +33,10 @@ export default function App() {
         {/* <LoginUI/> */}
 
         {/* <LoginDetailUI/> */}
-        <SignupUI/>
+
+        {/* <SignupUI/> */}
+
+        <MapFeature/>
         
         <StatusBar style="auto" />
 
