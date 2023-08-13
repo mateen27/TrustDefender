@@ -1,8 +1,10 @@
-
+import React from 'react';
+import Header from './components/Header'
 export default function App() {
   return (
-    <div className="">
-      <h1>Trust Defender</h1>
-      </div>
-  );
+    <div>
+      <Header/>
+    </div>
+  )
 }
+
