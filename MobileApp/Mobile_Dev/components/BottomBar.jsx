@@ -17,7 +17,7 @@ const BottomNavigation=()=>{
         resizeMode='cover'
         style = {styles.bottomNavBarImage}
         /> */}
-        <Ionicons name="home-outline" size={20} color="black" />
+        <Ionicons name="home-outline" size={20} color="#ffffff" />
         <Text style = {styles.bottomNavBarText}>Home</Text>
       </TouchableOpacity>
 
@@ -28,7 +28,7 @@ const BottomNavigation=()=>{
         resizeMode='cover'
         style = {styles.bottomNavBarImage}
         /> */}
-        <Feather name="search" size={20} color="black" />
+        <Feather name="search" size={20} color="#ffffff" />
         <Text style = {styles.bottomNavBarText}>Search</Text>
       </TouchableOpacity>
 
@@ -39,7 +39,7 @@ const BottomNavigation=()=>{
         resizeMode='cover'
         style = {styles.bottomNavBarImage}
         /> */}
-        <Ionicons name="ios-chatbubble-ellipses-outline" size={20} color="black" />
+        <Ionicons name="ios-chatbubble-ellipses-outline" size={20} color="#ffffff" />
         <Text style = {styles.bottomNavBarText}>Chat</Text>
       </TouchableOpacity>
 
@@ -50,7 +50,7 @@ const BottomNavigation=()=>{
         resizeMode='cover'
         style = {styles.bottomNavBarImage}
         /> */}
-        <Feather name="user" size={20} color="black" />
+        <Feather name="user" size={20} color="#ffffff" />
         <Text style = {styles.bottomNavBarText}>About</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
   bottomContainer : {
     flexDirection : 'row' , 
     justifyContent : 'space-around' , 
-    backgroundColor : '#F4F4F4' , 
+    backgroundColor : '#333' , 
     padding : '3%' , 
     alignItems : 'center' , //aligining the items
-    borderRadius : 25 , 
+    // borderRadius : 25 , 
     position: 'absolute', // Position it at the bottom
     bottom: 0, // Align it to the bottom of the screen
     left: 0, // Align it to the left of the screen
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     height : responsiveScreenHeight(5)
   } ,
   bottomNavBarText : {
-    color : 'black' , 
+    color : 'white' , 
     marginTop: '3%', // Add some space between icon and text
     fontWeight : 'bold'
   } ,

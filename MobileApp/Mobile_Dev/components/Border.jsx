@@ -11,7 +11,7 @@ import {
 const Options=()=>{
 
     return(
-        <View style={{marginTop:0}}>
+        <View style={{marginTop:10}}>
             <Text style={{fontSize:15,marginHorizontal:25,marginBottom:5 , justifyContent :'space-between' , fontWeight : 'bold' ,  }}>NEARBY</Text>
         <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
         <Text style={styles.container}></Text>
@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Center vertically
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderRadius: 9,
+    borderRadius: 50,
     height: responsiveScreenHeight(7),
-    width: responsiveScreenWidth(14),
+    width: responsiveScreenWidth(16),
     alignItems: 'center', // Center horizontally
   },
   // ... other styles

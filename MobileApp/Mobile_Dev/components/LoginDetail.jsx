@@ -39,19 +39,20 @@ const LoginDetailUI = () => {
         {/* for the heading and subHeading */}
         <View style={styles.textContainer}>
           <Text style={styles.heading}>Welcome Back!</Text>
-          <Text style={styles.subHeading}>Login to your existing account</Text>
+          {/* <Text style={styles.subHeading}>Login to your existing account</Text> */}
         </View>
 
         {/* for textInput Fields */}
         <View style={styles.textInputContainer}>
-          <AntDesign name="user" size={24} color="black" />
-          <TextInput style={styles.textbox} placeholder="User Name" />
+          <AntDesign name="user" size={24} color="white" />
+          <TextInput style={styles.textbox} placeholder="User Name" placeholderTextColor="gray" />
         </View>
         <View style={styles.textInputContainer}>
-          <Feather name="unlock" size={24} color="black" />
+          <Feather name="unlock" size={24} color="white" />
           <TextInput
             style={styles.textbox}
             placeholder="Password"
+            placeholderTextColor="gray" // Change this to the color you want
             secureTextEntry={!showPassword}
             value={password}
             onChangeText={setPassword}
@@ -60,7 +61,7 @@ const LoginDetailUI = () => {
             onPress={toggleShowPassword}
             style={styles.showPasswordButton}
           >
-            <Icon name={showPassword ? "unlock" : "lock"} size={20} />
+            <Icon name={showPassword ? "unlock" : "lock"} size={20} color='white'/>
           </TouchableOpacity>
         </View>
 
@@ -107,7 +108,7 @@ const LoginDetailUI = () => {
             marginTop: "5%",
           }}
         >
-          <Text style={{ marginHorizontal: 2 }}>Don't Have An Account?</Text>
+          <Text style={{ marginHorizontal: 2 , color : '#ffffff' }}>Don't Have An Account?</Text>
           <Text style={{ color: "#87CEEB" }}>Signup</Text>
         </View>
       </ScrollView>
@@ -118,6 +119,7 @@ const LoginDetailUI = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor : '#000000'
   },
   imageContainer: {
     alignItems: "center",
@@ -132,6 +134,8 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: responsiveScreenFontSize(5),
+    marginBottom : '5%' , 
+    color : '#ffffff'
   },
   subHeading: {
     fontSize: responsiveScreenFontSize(2.3),
@@ -145,11 +149,13 @@ const styles = StyleSheet.create({
     alignItems: "center", // Horizontally center the content
     justifyContent: "center", // Vertically center the content
     // paddingVertical: 5, // Add padding instead of fixed height
-    borderColor: "black",
+    borderColor: "#ffffff",
     borderWidth: 2,
     borderRadius: 50,
     justifyContent: "center",
-    position: "relative", // Add position relative to the container
+    position: "relative", // Add position relative to the container , 
+    color : '#ffffff' , 
+    // backgroundColor : 'grey'
 
   },
   textbox: {
@@ -157,7 +163,9 @@ const styles = StyleSheet.create({
     width: responsiveScreenWidth(60),
     height: responsiveScreenHeight(8),
     textAlign: "center",
+    color: '#ffffff', // Text color when typing
     // margin  : 1
+    
   },
   forgotPasswordContainer: {
     alignItems: "flex-end",

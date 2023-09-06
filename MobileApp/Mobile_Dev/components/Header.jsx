@@ -2,7 +2,7 @@ import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image } from 'react-n
 import React from 'react'
 // importing the bars image
 import { Entypo } from '@expo/vector-icons';
-import MenuBar from '../images/menuBarIcon.png'
+import MenuBar from '../images/text.png'
 import Menu from '../images/menu-bar.png'
 // importing notification icon
 import { Ionicons } from '@expo/vector-icons';
@@ -27,7 +27,7 @@ const Header = () => {
       <Text style = {styles.headerText}>Home</Text>
 
       {/* Notification Icon */} 
-      <TouchableOpacity><Ionicons name="notifications-outline" size={24} color="#0D0D0D" /></TouchableOpacity>
+      <TouchableOpacity><Ionicons name="notifications-outline" size={25} color="#ffffff" /></TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     headerText : {
         fontSize : responsiveScreenFontSize(2.5) , 
         fontWeight : "bold" , 
-        color : '#0D0D0D' , 
+        color : '#ffffff' , //#0D0D0D  //#f5f6fa //#CAD5E2
     } , 
     headerMenu : {
       width : 30 ,

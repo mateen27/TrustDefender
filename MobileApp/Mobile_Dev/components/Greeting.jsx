@@ -10,7 +10,7 @@ import {
 const Greeting = () => {
   return (
     <SafeAreaView style = {styles.greetingContainer}>
-      <Text style = {styles.userName}>Hi, Saleem!</Text>
+      <Text style = {styles.userName}>Hi, Mateen!</Text>
       <Text style = {styles.greetingSubheading}>Good Morning</Text>
     </SafeAreaView>
   )
@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
     } , 
     userName : {
         fontSize : responsiveScreenFontSize(2.6) , 
-        fontWeight : '700'
+        fontWeight : '700' , 
+        color : '#ffffff'
     } , 
     greetingSubheading : {
         fontWeight : '200' , 
-        color : '#758283'
+        color : '#ced6e0'
     }
 })

@@ -32,7 +32,7 @@ const Carousel = () => {
   const renderItem = ({ item, index }) => {
     return (
       <SafeAreaView style={styles.imageContainer}>
-        <Image source={{ uri: item.image }} style={{ width: screenWidth, height: 180 }} resizeMode="cover" />
+        <Image source={{ uri: item.image }} style={{ width: screenWidth, height: 280 }} resizeMode="cover" />
       </SafeAreaView>
     );
   };
@@ -113,11 +113,12 @@ export default Carousel;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: '5%',
+    // marginVertical: '3%',
+    // marginTop : '1%'
   },
   imageContainer: {
     width: Dimensions.get('window').width,
-    height: 180,
+    height: 200,
   },
   dotContainer: {
     position: 'absolute',

@@ -13,7 +13,7 @@ const ShakeFeature = () => {
       
         // You can display the message here or trigger any other action once the shake duration exceeds the threshold
         if (shakeDuration > minShakeDuration) {
-          console.log('Hi Luv Saini');
+          console.log('Hi Mateen');
           // Your action here (e.g., send distress signal, alert, etc.)
         }
       
