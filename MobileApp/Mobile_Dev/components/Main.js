@@ -32,7 +32,7 @@ export default function Main() {
         <Carousel/>
         
 
-        <BottomNavigation/>
+        {/* <BottomNavigation/> */}
 
         {/* <LoginUI/> */}
 
